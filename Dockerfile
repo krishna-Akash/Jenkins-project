@@ -2,12 +2,11 @@ FROM python:3.7
 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /app
+WORKDIR / app
 
-WORKDIR /app
-
-ADD requirements.txt /app/
+ADD ./ app
+COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install -r requirements.txt
 
-ADD . /app/
+COPY . /app
